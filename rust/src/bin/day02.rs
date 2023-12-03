@@ -58,10 +58,22 @@ fn part1(fname: &'static str) -> i32 {
     res
 }
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn part2(fname: &'static str) -> i32 {
-    return 0;
+    let games = read_to_string(fname).unwrap();
+    let games: Vec<GameRow> = games.lines().map(|s| parse(s)).collect();
+    let max_counts: Vec<(u32, u32, u32)> = games
+        .iter()
+        .map(|g| {
+            g.color_counts.iter().fold((0, 0, 0), |acc, &(x, y, z)| {
+                (acc.0.max(x), acc.1.max(y), acc.2.max(z))
+            })
+        })
+        .collect();
+    let mut res: i32 = 0;
+    for (x, y, z) in max_counts {
+        res += (x * y * z) as i32;
+    }
+    res
 }
 
 fn main() {
