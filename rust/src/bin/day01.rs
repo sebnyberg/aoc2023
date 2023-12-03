@@ -59,6 +59,6 @@ pub fn part2(fname: &'static str) -> i32 {
 }
 
 fn main() {
-    // println!("{}", part1("src/bin/day01input"));
+    println!("{}", part1("src/bin/day01input"));
     println!("{}", part2("src/bin/day01input"));
 }
