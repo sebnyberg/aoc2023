@@ -97,10 +97,6 @@ func part1(fn string) int {
 		}
 		return highCard
 	}
-	// We should be able to simply sort all hands then calculate the result.
-	//
-	// To make comparisons of the same hand easier, sort each hand by group size
-	// first, then card value.
 	ls := lines(fn)
 	n := len(ls)
 	hands := make([]hand, n)
@@ -202,10 +198,6 @@ func part2(fn string) int {
 		}
 		return highCard
 	}
-	// We should be able to simply sort all hands then calculate the result.
-	//
-	// To make comparisons of the same hand easier, sort each hand by group size
-	// first, then card value.
 	ls := lines(fn)
 	n := len(ls)
 	hands := make([]hand, n)
