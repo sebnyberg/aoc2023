@@ -14,7 +14,7 @@ func maybe(err error) {
 	}
 }
 
-func mustint(s string) int {
+func atoi(s string) int {
 	x, err := strconv.Atoi(s)
 	maybe(err)
 	return x
@@ -44,7 +44,7 @@ func part1(fn string) int {
 			if s == "" {
 				continue
 			}
-			x := mustint(s)
+			x := atoi(s)
 			winning[x] = true
 		}
 		var count int
@@ -52,7 +52,7 @@ func part1(fn string) int {
 			if s == "" {
 				continue
 			}
-			x := mustint(s)
+			x := atoi(s)
 			if winning[x] {
 				count++
 			}
@@ -81,7 +81,7 @@ func part2(fn string) int {
 			if s == "" {
 				continue
 			}
-			x := mustint(s)
+			x := atoi(s)
 			winning[x] = true
 		}
 		var count int
@@ -89,7 +89,7 @@ func part2(fn string) int {
 			if s == "" {
 				continue
 			}
-			x := mustint(s)
+			x := atoi(s)
 			if winning[x] {
 				count++
 			}

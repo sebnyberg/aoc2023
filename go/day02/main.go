@@ -14,7 +14,7 @@ func maybe(err error) {
 	}
 }
 
-func mustint(s string) int {
+func atoi(s string) int {
 	x, err := strconv.Atoi(s)
 	maybe(err)
 	return x
@@ -44,7 +44,7 @@ func parse(lines []string) []game {
 	n := len(lines)
 	res := make([]game, n)
 	for i, s := range lines {
-		res[i].idx = mustint(strings.Split(strings.Split(s, ":")[0], " ")[1])
+		res[i].idx = atoi(strings.Split(strings.Split(s, ":")[0], " ")[1])
 		s = strings.Split(s, ":")[1]
 		sets := strings.Split(s, ";")
 		res[i].sets = make([][3]int, len(sets))
@@ -53,7 +53,7 @@ func parse(lines []string) []game {
 			for _, ball := range balls {
 				count := strings.Split(strings.Trim(ball, " "), " ")[0]
 				color := strings.Split(strings.Trim(ball, " "), " ")[1]
-				res[i].sets[j][idx[color]] = mustint(count)
+				res[i].sets[j][idx[color]] = atoi(count)
 			}
 		}
 	}

@@ -16,7 +16,7 @@ func maybe(err error) {
 	}
 }
 
-func mustint(s string) int {
+func atoi(s string) int {
 	x, err := strconv.Atoi(s)
 	maybe(err)
 	return x
@@ -59,7 +59,7 @@ func part1(fn string) int {
 
 	ls := lines(fn)
 	for _, s := range strings.Split(ls[0], " ")[1:] {
-		x := mustint(s)
+		x := atoi(s)
 		seedVals[x] = x
 	}
 	i := 3
@@ -67,9 +67,9 @@ func part1(fn string) int {
 		next := make(map[int]int)
 		for i < len(ls) && ls[i] != "" {
 			parts := strings.Split(ls[i], " ")
-			dest := mustint(parts[0])
-			source := mustint(parts[1])
-			delta := mustint(parts[2])
+			dest := atoi(parts[0])
+			source := atoi(parts[1])
+			delta := atoi(parts[2])
 			diff := dest - source
 			for _, seed := range seedVals {
 				if seed >= source && seed < source+delta {
@@ -102,8 +102,8 @@ func part2(fn string) int {
 	ls := lines(fn)
 	seeds := strings.Split(ls[0], " ")
 	for j := 1; j < len(seeds); j += 2 {
-		x := mustint(seeds[j])
-		y := mustint(seeds[j+1])
+		x := atoi(seeds[j])
+		y := atoi(seeds[j+1])
 		ivals = append(ivals, interval{x, x + y})
 	}
 	i := 3
@@ -112,9 +112,9 @@ func part2(fn string) int {
 		covered := make([][]interval, len(ivals))
 		for i < len(ls) && ls[i] != "" {
 			parts := strings.Split(ls[i], " ")
-			dest := mustint(parts[0])
-			source := mustint(parts[1])
-			delta := mustint(parts[2])
+			dest := atoi(parts[0])
+			source := atoi(parts[1])
+			delta := atoi(parts[2])
 			diff := dest - source
 			sourceival := interval{source, source + delta}
 			// Check if any of the input intervals are contained by the source

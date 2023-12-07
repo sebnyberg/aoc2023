@@ -14,7 +14,7 @@ func maybe(err error) {
 	}
 }
 
-func mustint(s string) int {
+func atoi(s string) int {
 	x, err := strconv.Atoi(s)
 	maybe(err)
 	return x
@@ -118,16 +118,16 @@ func part1(fn string) int {
 	times := make([]int, n)
 	dists := make([]int, n)
 	for i := range timeStrs {
-		times[i] = mustint(timeStrs[i])
-		dists[i] = mustint(distStrs[i])
+		times[i] = atoi(timeStrs[i])
+		dists[i] = atoi(distStrs[i])
 	}
 	return solve(times, dists)
 }
 
 func part2(fn string) int {
 	ls := lines(fn)
-	times := []int{mustint(strings.Join(strings.Fields(ls[0])[1:], ""))}
-	dists := []int{mustint(strings.Join(strings.Fields(ls[1])[1:], ""))}
+	times := []int{atoi(strings.Join(strings.Fields(ls[0])[1:], ""))}
+	dists := []int{atoi(strings.Join(strings.Fields(ls[1])[1:], ""))}
 	return solve(times, dists)
 }
 

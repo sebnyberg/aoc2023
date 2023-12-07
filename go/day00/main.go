@@ -16,7 +16,7 @@ func maybe(err error) {
 	}
 }
 
-func mustint(s string) int {
+func atoi(s string) int {
 	x, err := strconv.Atoi(s)
 	maybe(err)
 	return x

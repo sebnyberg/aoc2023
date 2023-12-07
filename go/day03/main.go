@@ -14,7 +14,7 @@ func maybe(err error) {
 	}
 }
 
-func mustint(s string) int {
+func atoi(s string) int {
 	x, err := strconv.Atoi(s)
 	maybe(err)
 	return x
@@ -59,7 +59,7 @@ func part1(fn string) int {
 			for r < len(line) && isnum(line[r]) {
 				r++
 			}
-			x := mustint(line[l:r])
+			x := atoi(line[l:r])
 		outer:
 			for k := l; k < r; k++ {
 				for _, d := range dirs {
@@ -108,7 +108,7 @@ func part2(fn string) int {
 			for r < len(line) && isnum(line[r]) {
 				r++
 			}
-			x := mustint(line[l:r])
+			x := atoi(line[l:r])
 		outer:
 			for k := l; k < r; k++ {
 				for _, d := range dirs {
