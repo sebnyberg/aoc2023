@@ -3,9 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
-	"math"
 	"os"
-	"sort"
 	"strconv"
 	"strings"
 )
@@ -22,7 +20,7 @@ func atoi(s string) int {
 	return x
 }
 
-func lines(fname string) []string {
+func readlines(fname string) []string {
 	f, err := os.Open(fname)
 	maybe(err)
 	contents, err := io.ReadAll(f)
@@ -35,15 +33,15 @@ func lines(fname string) []string {
 	return res
 }
 
-func part1(fn string) int {
+func part1(lines []string) int {
 	return 0
 }
 
-func part2(fn string) int {
+func part2(lines []string) int {
 	return 0
 }
 
 func main() {
-	fmt.Println(part1("input"))
-	fmt.Println(part2("input"))
+	fmt.Println(part1(readlines("input")))
+	fmt.Println(part2(readlines("input")))
 }
